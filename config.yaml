@@ -38,7 +38,7 @@ languages:
         - name: Tags
           url: tags/
           weight: 10
-        - name: Manipulator Simulator 🤖
+        - name: Manipulator Simulator
           url: https://trapoom555.github.io/Manipulator-Simulator/
 
 outputs:

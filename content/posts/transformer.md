@@ -8,10 +8,9 @@ tags: [
     "basic-AI-knowledge",
     "paper-review"
 ]
-math: true
+math: katex
+draft: true
 ---
-
-# Transformer : The idea behind the AI revolution
 
 ## Background
 
@@ -35,7 +34,7 @@ One of the most successful model was the LSTM (Long Short-term Memory) [[2]](#2)
 Recurrent Neural Network (RNN) is a type of Neural Network that enables sequential data processing capability of the Neural Network by passing through the *state* at all time steps. 
 
 The architecture is quite simple. There's a RNN unit that receives an input vector at timestep $t$ as 
-$\bm{x}_t$ and the activation vector of the previous timestep $t-1$ as $\bm{a}_{t-1}$. It will then calculate the activation vector $\bm{a}_t$ for the next time step. And uses $\bm{a}_t$ to calculate the output vector $\bm{y}_t$ of the RNN at that time step.
+$ \bm x_t $ and the activation vector of the previous timestep $t-1$ as $\bm a_{t-1}$. It will then calculate the activation vector $\bm a_t$ for the next time step. And uses $\bm a_t$ to calculate the output vector $\bm y_t$ of the RNN at that time step.
 
 | ![RNN architecture picture](https://github.com/trapoom555/trapoom555-page/blob/main/static/images/transformer/RNN.png?raw=true) |
 |:--:| 
@@ -44,8 +43,8 @@ $\bm{x}_t$ and the activation vector of the previous timestep $t-1$ as $\bm{a}_{
 
 The RNN can be formulated as follows.
 
-$$\bm{a}_t = f(\bm{x}_t, \bm{a}_{t-1})$$
-$$\bm{y}_t = g(\bm{a}_t)$$
+$$\bm a_t = f(\bm x_t, \bm a_{t-1})$$
+$$\bm y_t = g(\bm a_t)$$
 
 
 ## References
