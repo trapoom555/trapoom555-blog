@@ -1,6 +1,6 @@
 ---
 author: "trapoom555"
-title: "Transformer : The idea behind the AI revolution"
+title: "Transformer : The idea behind AI revolution"
 date: "2024-01-09"
 description: "Understand the beginning of GPT, BERT, ViT, etc."
 tags: [
@@ -9,7 +9,6 @@ tags: [
     "paper-review"
 ]
 math: katex
-draft: true
 ---
 
 ## Background
