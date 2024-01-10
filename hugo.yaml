@@ -38,7 +38,7 @@ languages:
         - name: Tags
           url: tags/
           weight: 10
-        - name: manipulatorSimulator 🦾
+        - name: Manipulator Simulator 🦾
           url: https://trapoom555.github.io/Manipulator-Simulator/
 
 outputs:
@@ -83,9 +83,12 @@ params:
         url: tags
 
   homeInfoParams:
-    Title: "Trapoom555's Blog"
+    Title: "Trapoom555's Blog 🤖"
     Content: >
-      👋 Welcome to demo page of Hugo's theme PaperMod!
+      Hi 👋 My name is Trapoom from Thailand 🇹🇭. Now I'm a Master Student at Tsinghua University in Computer Science. 
+      I'm writing the blog to share knowledge and some of my experiences 🌍. 
+
+      - My research interest are #robot-learning, #embodied-AI and #multi-modal-machine-learning
 
   socialIcons:
     - name: LinkedIn
