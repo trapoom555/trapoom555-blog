@@ -99,7 +99,7 @@ params:
       url: "https://github.com/trapoom555"
 
   editPost:
-    URL: "https://github.com/trapoom555/trapoom555-blog"
+    URL: "https://github.com/trapoom555/trapoom555-blog/blob/main/content"
     Text: "Suggest Changes" # edit text
     appendFilePath: true # to append file path to Edit link
 
