@@ -53,6 +53,22 @@ $$\bm y_t = g(\bm h_t)$$
 |:--:| 
 | *RNN Architecture (Image by author)* |
 
+### What's wrong with RNN ?
+
+There're some important drawbacks of the RNN architecture
+
+1. The architecture can't be parallelized
+
+    The RNN processes input in sequence. It makes a training process very slow.
+
+2. Long-term dependencies problem
+    
+    It's quite difficult for RNN to capture the information in long time ago. It make sense that keeping the information for a longer time needs more memory. But the number of dimensions of the hidden state vector is still the same. There's an information bottleneck at the hidden state vector.
+
+Transformer can perfectly solve these problems !
+
+## Transformer
+
 
 
 ## References
