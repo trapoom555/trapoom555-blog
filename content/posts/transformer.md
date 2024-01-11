@@ -2,13 +2,13 @@
 author: "trapoom555"
 title: "Transformer : The idea behind AI revolution"
 date: "2024-01-09"
-description: "Understand the beginning of GPT, BERT, ViT, etc."
+description: "Fundamental of BERT, GPT, ViT, etc."
 tags: [
     "NLP",
     "basic-AI-knowledge",
     "paper-review"
 ]
-math: katex
+math: mathjax
 draft: true
 ---
 
@@ -37,18 +37,18 @@ Recurrent Neural Network (RNN) is a type of Neural Network that unlocks sequenti
 
 The architecture is quite simple. There's a RNN unit that receives
 - Input vector at timestep $t$ as 
-$ \bm x_t $ 
-- Hidden state of the previous timestep $t-1$ as $\bm h_{t-1}$. 
+$ \boldsymbol x_t $ 
+- Hidden state of the previous timestep $t-1$ as $\boldsymbol h_{t-1}$. 
 
 After some calculations, It will then output 
 
-- Hidden state $\bm h_t$ for the next time step
-- Output vector $\bm y_t$ of the RNN at time step $t$.
+- Hidden state $\boldsymbol h_t$ for the next time step
+- Output vector $\boldsymbol y_t$ of the RNN at time step $t$.
 
 The RNN can be formulated as follows.
 
-$$\bm h_t = f(\bm x_t, \bm h_{t-1})$$
-$$\bm y_t = g(\bm h_t)$$
+$$\boldsymbol h_t = f(\boldsymbol x_t, \boldsymbol h_{t-1})$$
+$$\boldsymbol y_t = g(\boldsymbol h_t)$$
 
 | ![RNN architecture picture](https://github.com/trapoom555/trapoom555-blog/blob/main/static/images/transformer/RNN.png?raw=true) |
 |:--:| 
@@ -84,11 +84,49 @@ The Residual connection [[3]](#3) is applied to maintain an accuracy in a deep m
 |:--:| 
 | *Transformer Architecture (Image from [[1]](#1))* |
 
-### Attention
+### Attention Mechanism
 
-### Multi-Head Attention
+Human's eyes see the world in an interesting way. We usually focus on something interesting instead of looking at the entire scene at once. This idea has been firstly adapted to AI for long time ago. it is called the Attention Mechanism. It has beed discovered to be useful in a field of image recognition, machine translation. A Scaled-dot product attention, a special type of the Attention Mechanism, is used in Transformer.
 
-### Masked Multi-Head Attention
+| ![Transformer input output example](https://github.com/trapoom555/trapoom555-blog/blob/main/static/images/transformer/attention_example.png?raw=true) |
+|:--:| 
+| *Attention for the word "making" with its own sentence [Self-Attention] (Image from [[1]](#1))* |
+
+In the image above, Seeing that the word "making" has a strong attention with "more" and "difficult" which complete the phrase "making...more difficult"
+
+#### Scaled-dot product Attention
+
+When coming into the Self-Attention layer, the input vectors $\boldsymbol x \in \mathbb{R}^{d_{model}}$ of each word are packed into a matrix $\boldsymbol X \in \mathbb{R}^{\text{seq\_len} \times d_{model}}$ and will be then transformed to Query $\boldsymbol Q$, Key $\boldsymbol K$ and Value $ \boldsymbol V$.
+
+$$\boldsymbol Q = \boldsymbol X \boldsymbol W^Q $$
+$$\boldsymbol K = \boldsymbol X \boldsymbol W^K $$
+$$\boldsymbol V = \boldsymbol X \boldsymbol W^V$$
+
+Note that $\boldsymbol Q, \boldsymbol K, \boldsymbol V \in \mathbb{R}^{\text{seq\_len} \times d_{model}}$ and 
+$\boldsymbol W^Q, \boldsymbol W^K, \boldsymbol W^V \in \mathbb{R}^{d_{model} \times d_{model}}$ are learnable transformation matrices.
+
+A Scale-dot product attention can be calculated from $\boldsymbol Q, \boldsymbol K, \boldsymbol V$ as follows.
+
+$$\text{Attention}(\boldsymbol Q, \boldsymbol K, \boldsymbol V)=\text{softmax}\left( \frac{\boldsymbol Q \boldsymbol K^T}{\sqrt{d_{model}}}\right) \boldsymbol V$$
+
+Let's breakdown each step of calculation
+
+1. $\boldsymbol Q \boldsymbol K^T \in \mathbb{R}^{\text{seq\_len} \times \text{seq\_len}}$ : This step perform a dot product operation which extracts the **similarity** pairs between Queries and Keys
+
+2. $\frac{\boldsymbol Q \boldsymbol K^T}{\sqrt{d_{model}}}$ : The calculated similarity values are reduced by $\sqrt{d_{model}}$ times preventing too large or too small value that fall into a very small gradient region of softmax. It will cause a very small & slow gradient update.
+| <img src="https://github.com/trapoom555/trapoom555-blog/blob/main/static/images/transformer/gradient_small.png?raw=true" style= "display: block; margin-left: auto; margin-right: auto; width: 60%;"/>|
+|:--:| 
+| *When input of the softmax function is too small or too large, it will fall into a very small gradient region (Image by author)* |
+
+3. $\text{softmax} \left( \frac{\boldsymbol Q \boldsymbol K^T}{\sqrt{d_{model}}}\right)$ : Translate scores to probabilities by applying softmax along the row axis. It makes each row sum up to $1$.
+
+4. $\text{softmax} \left( \frac{\boldsymbol Q \boldsymbol K^T}{\sqrt{d_{model}}}\right) \boldsymbol V \in \mathbb{R}^{\text{seq\_len} \times d_{model}}$ : Weighted sum of values
+
+#### Multi-Head Attention
+
+
+
+#### Masked Multi-Head Attention
 
 ### Positional Embedding
 
