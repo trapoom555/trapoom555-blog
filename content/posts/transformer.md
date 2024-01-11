@@ -115,13 +115,13 @@ $$\boldsymbol Q = \boldsymbol X \boldsymbol W^Q $$
 $$\boldsymbol K = \boldsymbol Y \boldsymbol W^K $$
 $$\boldsymbol V = \boldsymbol Y \boldsymbol W^V$$
 
-After getting $\boldsymbol Q$, $\boldsymbol K$ and $ \boldsymbol V$, A Scale-dot product attention can be computed from $\boldsymbol Q, \boldsymbol K, \boldsymbol V$ as follows.
+After getting $\boldsymbol Q$, $\boldsymbol K$ and $ \boldsymbol V$, A Scale-dot product attention can be computed as follows.
 
 $$\text{Attention}(\boldsymbol Q, \boldsymbol K, \boldsymbol V)=\text{softmax}\left( \frac{\boldsymbol Q \boldsymbol K^T}{\sqrt{d_{model}}}\right) \boldsymbol V$$
 
-Let's breakdown each step of calculation
+Let's breakdown each step of calculation to get some insights
 
-1. $\boldsymbol Q \boldsymbol K^T \in \mathbb{R}^{\text{seq\_len} \times \text{seq\_len}}$ : This step perform a dot product operation which extracts the **similarity** pairs between Queries and Keys
+1. $\boldsymbol Q \boldsymbol K^T \in \mathbb{R}^{\text{seq\_len} \times \text{seq\_len}}$ : This step perform a dot product operation which extracts the **similarity** pairs between Queries and Keys (it can be called Attention Score)
 
 2. $\frac{\boldsymbol Q \boldsymbol K^T}{\sqrt{d_{model}}}$ : The calculated similarity values are reduced by $\sqrt{d_{model}}$ times preventing too large or too small value that fall into a very small gradient region of softmax. It will cause a very small & slow gradient update.
 | <img src="https://github.com/trapoom555/trapoom555-blog/blob/main/static/images/transformer/gradient_small.png?raw=true" style= "display: block; margin-left: auto; margin-right: auto; width: 60%;"/>|
@@ -138,7 +138,17 @@ Meaning that we have a *query* word in a source language and then we look all *k
 
 #### Multi-Head Attention
 
+By using multiple attention heads (modules), it increases a capability of capturing more information and boost the performance.
 
+> **Intuition** : If we have "Dad" as a query and "Son" as a key, do you think these two words have a high or low attention score ? The answer is "Could be high or low if we look at them in different aspects". "Dad" and "Son" could be similar if we consider that they are in a family member category. But they could be different if we consider at their age. Using multiple attention heads **allow the model capture multiple aspects of attentions**.
+
+
+$$\text{Multihead}(\boldsymbol Q, \boldsymbol K, \boldsymbol V) = \text{Concat}\left( \text{head}_1, ..., \text{head}_h\right) \boldsymbol W^O$$
+$$\text{where head}_i= 
+\begin{cases} 
+ \text{Attention}\left( \boldsymbol X \boldsymbol W^Q, \boldsymbol X \boldsymbol W^K, \boldsymbol X \boldsymbol W^V\right) & \text{if Self-Attention } \\\\
+ \text{Attention}\left( \boldsymbol X \boldsymbol W^Q, \boldsymbol Y \boldsymbol W^K, \boldsymbol Y \boldsymbol W^V\right) & \text{if Encoder-Decoder Attention}
+\end{cases}$$
 
 #### Masked Multi-Head Attention
 
