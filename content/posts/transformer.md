@@ -9,6 +9,7 @@ tags: [
     "paper-review"
 ]
 math: katex
+draft: true
 ---
 
 ## Background
@@ -53,9 +54,9 @@ $$\bm y_t = g(\bm h_t)$$
 |:--:| 
 | *RNN Architecture (Image by author)* |
 
-### What's wrong with RNN ?
+### RNN Limitations?
 
-There're some important drawbacks of the RNN architecture
+There're some important drawbacks in the RNN architecture
 
 1. **The architecture can't be parallelized**
 
@@ -70,6 +71,43 @@ Transformer can perfectly solve these problems !
 ## Transformer
 
 
+### Overall Architecture
+
+Transformer consists of $N$ identical Transformer blocks (In the original paper $N=6$). Each Transformer block consists of an encoder (left) and a decoder (right).
+
+- Encoder (left) : encode the input information
+- Decoder (right) : use encoded information along with the contextual input information to generate an output sequence
+
+The Residual connection [[3]](#3) is applied to maintain an accuracy in a deep model. By utilizing the residual connection, all output vectors of each layer in the Transformer has to have the same dimension. In the original paper the dimension is set to be $d_{model}=512$
+
+| <img src="https://github.com/trapoom555/trapoom555-blog/blob/main/static/images/transformer/transformer_architecture.png?raw=true" style= "display: block; margin-left: auto; margin-right: auto; width: 60%;"/>|
+|:--:| 
+| *Transformer Architecture (Image from [[1]](#1))* |
+
+### Attention
+
+### Multi-Head Attention
+
+### Masked Multi-Head Attention
+
+### Positional Embedding
+
+### Input and Output of the Transformer
+
+Since the Transformer was first used in Machine Translation. I'll give an example of the input and output in a format of Machine Translation task.
+
+
+In the training phase, the whole sentences of `(source_language, target_language_with_right_shift)` will be fed into the model. 
+
+| ![Transformer input output example](https://github.com/trapoom555/trapoom555-blog/blob/main/static/images/transformer/transformer_io_train.png?raw=true) |
+|:--:| 
+| *Transformer input output in traning phase (Image by author)* |
+
+
+In the inference phase, the model will predict the next token in an auto-regressive manner.
+
+
+
 
 ## References
 <a id="1">[1]</a> 
@@ -77,3 +115,6 @@ Vaswani, Ashish, et al. "Attention is all you need." Advances in neural informat
 
 <a id="2">[2]</a>
 Sepp Hochreiter and Jürgen Schmidhuber. Long short-term memory. Neural computation, 9(8):1735–1780, 1997.
+
+<a id="3">[3]</a>
+He, Kaiming, et al. "Deep residual learning for image recognition." Proceedings of the IEEE conference on computer vision and pattern recognition. 2016.
