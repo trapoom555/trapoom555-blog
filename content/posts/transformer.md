@@ -96,6 +96,8 @@ In the image above, Seeing that the word "making" has a strong attention with "m
 
 #### Scaled-dot product Attention
 
+##### Self-Attention
+
 When coming into the Self-Attention layer, the input vectors $\boldsymbol x \in \mathbb{R}^{d_{model}}$ of each word are packed into a matrix $\boldsymbol X \in \mathbb{R}^{\text{seq\_len} \times d_{model}}$ and will be then transformed to Query $\boldsymbol Q$, Key $\boldsymbol K$ and Value $ \boldsymbol V$.
 
 $$\boldsymbol Q = \boldsymbol X \boldsymbol W^Q $$
@@ -105,7 +107,15 @@ $$\boldsymbol V = \boldsymbol X \boldsymbol W^V$$
 Note that $\boldsymbol Q, \boldsymbol K, \boldsymbol V \in \mathbb{R}^{\text{seq\_len} \times d_{model}}$ and 
 $\boldsymbol W^Q, \boldsymbol W^K, \boldsymbol W^V \in \mathbb{R}^{d_{model} \times d_{model}}$ are learnable transformation matrices.
 
-A Scale-dot product attention can be calculated from $\boldsymbol Q, \boldsymbol K, \boldsymbol V$ as follows.
+##### Encoder-Decoder Attention
+
+Calculating $\boldsymbol Q$, $\boldsymbol K$ and $ \boldsymbol V$ in Encoder-Decoder Attention is different from Self-Attention. The $\boldsymbol Q$ comes from an encoder part but $\boldsymbol K$ and $ \boldsymbol V$ come from a decoder part. If we have an input from an encoder as $\boldsymbol X \in \mathbb{R}^{\text{seq\_len} \times d_{model}}$ and input from a decoder part as $\boldsymbol Y \in \mathbb{R}^{\text{seq\_len} \times d_{model}}$, $\boldsymbol Q$, $\boldsymbol K$ and $ \boldsymbol V$ can be calculated as follows
+
+$$\boldsymbol Q = \boldsymbol X \boldsymbol W^Q $$
+$$\boldsymbol K = \boldsymbol Y \boldsymbol W^K $$
+$$\boldsymbol V = \boldsymbol Y \boldsymbol W^V$$
+
+After getting $\boldsymbol Q$, $\boldsymbol K$ and $ \boldsymbol V$, A Scale-dot product attention can be computed from $\boldsymbol Q, \boldsymbol K, \boldsymbol V$ as follows.
 
 $$\text{Attention}(\boldsymbol Q, \boldsymbol K, \boldsymbol V)=\text{softmax}\left( \frac{\boldsymbol Q \boldsymbol K^T}{\sqrt{d_{model}}}\right) \boldsymbol V$$
 
@@ -121,6 +131,10 @@ Let's breakdown each step of calculation
 3. $\text{softmax} \left( \frac{\boldsymbol Q \boldsymbol K^T}{\sqrt{d_{model}}}\right)$ : Translate scores to probabilities by applying softmax along the row axis. It makes each row sum up to $1$.
 
 4. $\text{softmax} \left( \frac{\boldsymbol Q \boldsymbol K^T}{\sqrt{d_{model}}}\right) \boldsymbol V \in \mathbb{R}^{\text{seq\_len} \times d_{model}}$ : Weighted sum of values
+
+> **Intuition** : the output of the Scale-dot product attention at row $i^{th}$ can be seen as a weighted linear combination of the value vectors where weights are the similarity of the $i^{th}$ query with all keys $$ \text{Attention}(\boldsymbol Q, \boldsymbol K, \boldsymbol V)_\text{i-th row} = \sum_j^\text{seq\_len} {\text{sim}(\boldsymbol Q_i, \boldsymbol K_j) \boldsymbol V_j} $$
+Meaning that we have a *query* word in a source language and then we look all *keys* in a target language, calculate an attention score (similarity score) and use it as weights to do a weighted sum with *values* in the target language. By doing this, the value associate with high value of attention will influence more in output.
+
 
 #### Multi-Head Attention
 
