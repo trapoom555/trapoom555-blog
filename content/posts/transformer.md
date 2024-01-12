@@ -100,9 +100,7 @@ In the image above, Seeing that the word "making" has a strong attention with "m
 
 When coming into the Self-Attention layer, the input vectors $\boldsymbol x \in \mathbb{R}^{d_{model}}$ of each word are packed into a matrix $\boldsymbol X \in \mathbb{R}^{\text{seq\_len} \times d_{model}}$ and will be then transformed to Query $\boldsymbol Q$, Key $\boldsymbol K$ and Value $ \boldsymbol V$.
 
-$$\boldsymbol Q = \boldsymbol X \boldsymbol W^Q $$
-$$\boldsymbol K = \boldsymbol X \boldsymbol W^K $$
-$$\boldsymbol V = \boldsymbol X \boldsymbol W^V$$
+$$\boldsymbol Q = \boldsymbol X \boldsymbol W^Q \quad \boldsymbol K = \boldsymbol X \boldsymbol W^K \quad \boldsymbol V = \boldsymbol X \boldsymbol W^V$$
 
 Note that $\boldsymbol Q, \boldsymbol K, \boldsymbol V \in \mathbb{R}^{\text{seq\_len} \times d_{model}}$ and 
 $\boldsymbol W^Q, \boldsymbol W^K, \boldsymbol W^V \in \mathbb{R}^{d_{model} \times d_{model}}$ are learnable transformation matrices.
@@ -111,26 +109,26 @@ $\boldsymbol W^Q, \boldsymbol W^K, \boldsymbol W^V \in \mathbb{R}^{d_{model} \ti
 
 Calculating $\boldsymbol Q$, $\boldsymbol K$ and $ \boldsymbol V$ in Encoder-Decoder Attention is different from Self-Attention. The $\boldsymbol Q$ comes from an encoder part but $\boldsymbol K$ and $ \boldsymbol V$ come from a decoder part. If we have an input from an encoder as $\boldsymbol X \in \mathbb{R}^{\text{seq\_len} \times d_{model}}$ and input from a decoder part as $\boldsymbol Y \in \mathbb{R}^{\text{seq\_len} \times d_{model}}$, $\boldsymbol Q$, $\boldsymbol K$ and $ \boldsymbol V$ can be calculated as follows
 
-$$\boldsymbol Q = \boldsymbol X \boldsymbol W^Q $$
-$$\boldsymbol K = \boldsymbol Y \boldsymbol W^K $$
-$$\boldsymbol V = \boldsymbol Y \boldsymbol W^V$$
+$$\boldsymbol Q = \boldsymbol X \boldsymbol W^Q \quad \boldsymbol K = \boldsymbol Y \boldsymbol W^K \quad \boldsymbol V = \boldsymbol Y \boldsymbol W^V$$
 
 After getting $\boldsymbol Q$, $\boldsymbol K$ and $ \boldsymbol V$, A Scale-dot product attention can be computed as follows.
 
-$$\text{Attention}(\boldsymbol Q, \boldsymbol K, \boldsymbol V)=\text{softmax}\left( \frac{\boldsymbol Q \boldsymbol K^T}{\sqrt{d_{model}}}\right) \boldsymbol V$$
+$$\text{Attention}(\boldsymbol Q, \boldsymbol K, \boldsymbol V)=\text{softmax}\left( \frac{\boldsymbol Q \boldsymbol K^T}{\sqrt{d_{k}}}\right) \boldsymbol V$$
+
+Where $d_k =d_{model}$ in this case.
 
 Let's breakdown each step of calculation to get some insights
 
 1. $\boldsymbol Q \boldsymbol K^T \in \mathbb{R}^{\text{seq\_len} \times \text{seq\_len}}$ : This step perform a dot product operation which extracts the **similarity** pairs between Queries and Keys (it can be called Attention Score)
 
-2. $\frac{\boldsymbol Q \boldsymbol K^T}{\sqrt{d_{model}}}$ : The calculated similarity values are reduced by $\sqrt{d_{model}}$ times preventing too large or too small value that fall into a very small gradient region of softmax. It will cause a very small & slow gradient update.
+2. $\frac{\boldsymbol Q \boldsymbol K^T}{\sqrt{d_{k}}}$ : The calculated similarity values are reduced by $\sqrt{d_{k}}$ times preventing too large or too small value that fall into a very small gradient region of softmax. It will cause a very small & slow gradient update.
 | <img src="https://github.com/trapoom555/trapoom555-blog/blob/main/static/images/transformer/gradient_small.png?raw=true" style= "display: block; margin-left: auto; margin-right: auto; width: 60%;"/>|
 |:--:| 
 | *When input of the softmax function is too small or too large, it will fall into a very small gradient region (Image by author)* |
 
-3. $\text{softmax} \left( \frac{\boldsymbol Q \boldsymbol K^T}{\sqrt{d_{model}}}\right)$ : Translate scores to probabilities by applying softmax along the row axis. It makes each row sum up to $1$.
+3. $\text{softmax} \left( \frac{\boldsymbol Q \boldsymbol K^T}{\sqrt{d_{k}}}\right)$ : Translate scores to probabilities by applying softmax along the row axis. It makes each row sum up to $1$.
 
-4. $\text{softmax} \left( \frac{\boldsymbol Q \boldsymbol K^T}{\sqrt{d_{model}}}\right) \boldsymbol V \in \mathbb{R}^{\text{seq\_len} \times d_{model}}$ : Weighted sum of values
+4. $\text{softmax} \left( \frac{\boldsymbol Q \boldsymbol K^T}{\sqrt{d_{k}}}\right) \boldsymbol V \in \mathbb{R}^{\text{seq\_len} \times d_{model}}$ : Weighted sum of values
 
 > **Intuition** : the output of the Scale-dot product attention at row $i^{th}$ can be seen as a weighted linear combination of the value vectors where weights are the similarity of the $i^{th}$ query with all keys $$ \text{Attention}(\boldsymbol Q, \boldsymbol K, \boldsymbol V)_\text{i-th row} = \sum_j^\text{seq\_len} {\text{sim}(\boldsymbol Q_i, \boldsymbol K_j) \boldsymbol V_j} $$
 Meaning that we have a *query* word in a source language and then we look all *keys* in a target language, calculate an attention score (similarity score) and use it as weights to do a weighted sum with *values* in the target language. By doing this, the value associate with high value of attention will influence more in output.
@@ -138,10 +136,17 @@ Meaning that we have a *query* word in a source language and then we look all *k
 
 #### Multi-Head Attention
 
-By using multiple attention heads (modules), it increases a capability of capturing more information and boost the performance.
+| <img src="https://github.com/trapoom555/trapoom555-blog/blob/main/static/images/transformer/multihead_attention.png?raw=true" style= "display: block; margin-left: auto; margin-right: auto; width: 40%;"/>|
+|:--:| 
+| *Multi-Head Attention (Image from [[1]](#1))* |
+
+By using multiple attention heads (or units), it increases a capability of capturing more information and boost the performance.
 
 > **Intuition** : If we have "Dad" as a query and "Son" as a key, do you think these two words have a high or low attention score ? The answer is "Could be high or low if we look at them in different aspects". "Dad" and "Son" could be similar if we consider that they are in a family member category. But they could be different if we consider at their age. Using multiple attention heads **allow the model capture multiple aspects of attentions**.
 
+We first define $d_k = d_{model}/ h$ where $h$ is the number of heads and $d_k$ is the number of embedding dimension in each head. In the paper, $h=8$ so $d_k=512/8=64$.
+
+We can compute the Multi-Head Attention as below.
 
 $$\text{Multihead}(\boldsymbol Q, \boldsymbol K, \boldsymbol V) = \text{Concat}\left( \text{head}_1, ..., \text{head}_h\right) \boldsymbol W^O$$
 $$\text{where head}_i= 
@@ -150,9 +155,75 @@ $$\text{where head}_i=
  \text{Attention}\left( \boldsymbol X \boldsymbol W^Q, \boldsymbol Y \boldsymbol W^K, \boldsymbol Y \boldsymbol W^V\right) & \text{if Encoder-Decoder Attention}
 \end{cases}$$
 
+Note that 
+
+$$\boldsymbol W^Q, \boldsymbol W^K, \boldsymbol W^V \in \mathbb{R}^{d_{model} \times d_k} \quad \text{head}_i \in \mathbb{R}^{\text{seq\_len} \times d_k}$$
+
+$$\quad \boldsymbol W^O \in \mathbb{R}^{d_{model} \times d_{model}} \quad \text{Multihead}(\boldsymbol Q, \boldsymbol K, \boldsymbol V) \in \mathbb{R}^{\text{seq\_len} \times d_{model}}$$
+
 #### Masked Multi-Head Attention
 
-### Positional Embedding
+Masked Multi-head Attention is used in a Decoder to ensure that the prediction of i-th token only depends on tokens before it maintaining the Auto-regressive property.
+
+$$
+\text{Masked-Attention}(\boldsymbol Q, \boldsymbol K, \boldsymbol V) =\text{softmax} \left( \frac{\boldsymbol Q \boldsymbol K^T}{\sqrt d_k}+ \boldsymbol M\right) \boldsymbol V
+$$
+
+The only different from the Scale-dot product attention is that there's a Mask matrix $\boldsymbol M$ which is defined by
+$$
+\boldsymbol M_{i,j} = \begin{cases} -\infty & \text{if } i<j \\\\ 0 & \text{if } i=j \end{cases}
+$$
+
+To give more concrete example, Suppose we have scaled attention scores as follows
+
+$$
+\frac{\boldsymbol Q \boldsymbol K^T}{\sqrt d_k} = \begin{pmatrix}
+a_{1,1} & a_{1,2} & a_{1,3} \\\\
+a_{2,1} & a_{2,2} & a_{2,2} \\\\
+a_{3,1} & a_{3,2} & a_{3,3} \\\\
+\end{pmatrix} 
+$$
+After Adding Mask to it
+
+$$
+\frac{\boldsymbol Q \boldsymbol K^T}{\sqrt d_k} + \boldsymbol M = \begin{pmatrix}
+a_{1,1} & -\infty & -\infty \\\\
+a_{2,1} & a_{2,2} & -\infty \\\\
+a_{3,1} & a_{3,2} & a_{3,3} \\\\
+\end{pmatrix} 
+$$
+And apply the softmax makes the $-\infty$ terms come to $0$
+$$ 
+\text{Masked-Attention}(\boldsymbol Q, \boldsymbol K, \boldsymbol V) = \begin{pmatrix}
+b_{1,1} & 0 & 0 \\\\
+b_{2,1} & b_{2,2} & 0 \\\\
+b_{3,1} & b_{3,2} & b_{3,3} \\\\
+\end{pmatrix} \boldsymbol V
+$$
+
+Seeing that the Masked-Attention score of word i-th (at row $i$) depends on only the value of words which is are i-th and before it.
+
+
+
+
+### Positional Encoding
+
+The job of the Positional Encoding is to add the information about the *order* of tokens to the input before feeding it into the Transformer. 
+
+There are learnable and fixed Positional Encoding. In this work, fixed one was used.
+
+$$PE_{(pos, 2i)} = sin\left( pos/10000^{2i/d_{model}}\right)$$
+$$PE_{(pos, 2i+1)} = cos\left( pos/10000^{2i/d_{model}}\right)$$
+
+Where $pos$ is the position of a token in a sequence and $i$ associates with dimension in embedding vector. The visualization of the Positional Encoding is below.
+
+
+| <img src="https://github.com/trapoom555/trapoom555-blog/blob/main/static/images/transformer/positional_encoding.png?raw=true" style= "display: block; margin-left: auto; margin-right: auto; width: 100%;"/>|
+|:--:|
+| *Positional Encoding Visualization (Image by author)* |
+
+
+
 
 ### Input and Output of the Transformer
 
@@ -161,14 +232,19 @@ Since the Transformer was first used in Machine Translation. I'll give an exampl
 
 In the training phase, the whole sentences of `(source_language, target_language_with_right_shift)` will be fed into the model. 
 
-| ![Transformer input output example](https://github.com/trapoom555/trapoom555-blog/blob/main/static/images/transformer/transformer_io_train.png?raw=true) |
-|:--:| 
+
+| <img src="https://github.com/trapoom555/trapoom555-blog/blob/main/static/images/transformer/transformer_io_train.png?raw=true" style= "display: block; margin-left: auto; margin-right: auto; width: 70%;"/>|
+|:--:|
 | *Transformer input output in traning phase (Image by author)* |
+
 
 
 In the inference phase, the model will predict the next token in an auto-regressive manner.
 
 
+| <img src="https://github.com/trapoom555/trapoom555-blog/blob/main/static/images/transformer/transformer_io_infer.png?raw=true" style= "display: block; margin-left: auto; margin-right: auto; width: 70%;"/>|
+|:--:|
+| *Transformer input output in traning phase (Image by author)* |
 
 
 ## References
