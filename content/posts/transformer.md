@@ -1,7 +1,7 @@
 ---
 author: "trapoom555"
 title: "Transformer : The idea behind AI revolution"
-date: "2024-01-09"
+date: "2024-01-12"
 description: "Foundation of BERT, GPT, ViT, etc."
 tags: [
     "NLP",
@@ -9,7 +9,6 @@ tags: [
     "paper-review"
 ]
 math: mathjax
-draft: true
 ---
 
 # Background
@@ -257,7 +256,7 @@ If you compare it with the training process in the RNN, the RNN sequentially pre
 
 ### Inference Phase
 
-In the inference phase, the model will predict the next token in an autoregressive manner. Meaning that the output of the previous timestep will be fed to the model as the input.
+In the inference phase, the model will predict the next token in an autoregressive manner. Meaning that the outputs of the previous timestep will be fed to the model as the input at this timestep.
 
 | <img src="https://github.com/trapoom555/trapoom555-blog/blob/main/static/images/transformer/transformer_io_infer.png?raw=true" style= "display: block; margin-left: auto; margin-right: auto; width: 70%;"/>|
 |:--:|
