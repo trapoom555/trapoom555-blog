@@ -5,7 +5,6 @@ date: "2024-01-12"
 description: "Foundation of BERT, GPT, ViT, etc."
 tags: [
     "NLP",
-    "basic-AI-knowledge",
     "paper-review"
 ]
 math: mathjax
