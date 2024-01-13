@@ -49,11 +49,11 @@ These biases are beneficial for extracting data from images. But it is proven th
 
 # Just for the Image Classification ?
 
-After the discovery of the ViT in 2020, Vision Transformer has dominated and applied to many computer vision tasks. List of models are in the table below.
+After the discovery of the ViT in 2020, Vision Transformer has dominated and applied to many computer vision tasks.
 
 | <img src="https://github.com/trapoom555/trapoom555-blog/blob/main/static/images/ViT/vison_transformer_tasks.png?raw=true" style= "display: block; margin-left: auto; margin-right: auto; width: 100%;"/>|
 |:--:| 
-| *Vision Transformer has been applied to many computer vision tasks and gained a good performance (Image from [[5]](#5))* |
+| *Vision Transformer has been applied to many computer vision tasks and gained a good performance comparable to or surpass CNN-based architecture (Image from [[5]](#5))* |
 
 # References
 
