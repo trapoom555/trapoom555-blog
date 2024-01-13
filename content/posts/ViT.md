@@ -32,7 +32,7 @@ The image is first patched into $n$ square pathes with the width and height of e
 
 Similar to BERT, a **learnable** token `[class]` is prepended. This token was introduced to be a room for aggregating information of all image patches at the last layer. In the end, the first token in the last layer will store the whole image representaion.
 
-## Other things
+## Other detils
 - A **learnable** positional encoding is added to each token before going into the BERT model.
 - Multi-Layer Perceptron (MLP) connects to the first token at the last layer of the BERT and do a pridiction task.
 
@@ -44,8 +44,8 @@ Similar to BERT, a **learnable** token `[class]` is prepended. This token was in
 ViT needs very large amount of training data (about 14M-300M images) [[3]](#3) to perform better than the CNN. 
 
 Because CNN introduces inductive biases within its structure which are
-1. shift-invariant
-2. locality
+1. Shift-invariant : The locatin of objects in the image doesn't matter to the outcome.
+2. Locality : Assumes that closer pixels are more related than further ones.
 
 These biases are beneficial for extracting data from images. But it is proven that, without these biases and feeding more data, ViT wins CNN.
 
