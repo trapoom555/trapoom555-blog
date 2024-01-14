@@ -9,9 +9,19 @@ draft: true
 ## Basics
 - [Transformer](https://trapoom555.github.io/trapoom555-blog/posts/transformer/) ✅ 
 - [ViT](https://trapoom555.github.io/trapoom555-blog/posts/vit/) ✅
-- [CLIP](https://trapoom555.github.io/trapoom555-blog/posts/clip/) ✅
 - Imitaiton Learning
-- Prompt Engineering
+
+## Prompt Engineering
+- Chain of Thought
+- Self-Consistency
+- Least-to-most Prompting
+- [Lilianweng's Blog](https://lilianweng.github.io/posts/2023-03-15-prompt-engineering/)
+
+## Multimodal
+- [CLIP](https://trapoom555.github.io/trapoom555-blog/posts/clip/) ✅
+- Frozen
+- Flamingo
+- PALI
 
 ## Multimodal LLMs with robot arms
 - VIMA
