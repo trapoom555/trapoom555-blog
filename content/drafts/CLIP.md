@@ -1,12 +1,7 @@
 ---
 author: "trapoom555"
-title: "CLIP : Bridge between Image and text"
+title: "[Draft] CLIP"
 date: "2024-01-14"
-description: "Learn image representation by text supervision"
-tags: [
-    "multi-modal",
-    "paper-review"
-]
 math: mathjax
 draft: true
 ---
