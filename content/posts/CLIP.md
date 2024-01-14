@@ -89,7 +89,7 @@ CLIP can do this job better than ImageNet-trained models due to its large-scale 
 Unlike ImageNet-trained models that can predict just pre-defined classes in the training dataset, CLIP can adapt to all labels<br>
     - Use the text encoder to calculate an embedding vectors of **all given labels** <br> Suppose $\boldsymbol X_T$ is a matrix of $N$ labels $$\boldsymbol T = \mathcal{T}(\boldsymbol X_T) \boldsymbol W_T$$
     - Pass an image through the image encoder $$\boldsymbol I_1 = \mathcal{I}(\boldsymbol x_I) \boldsymbol W_I$$
-    - Calculate cosine similarity of an image to all label embeddings, scale by temperature and then normalize to a probability distribution with the softmax function $$p(\boldsymbol X_{T,i} | \boldsymbol x_I) = \frac{\exp \left(\boldsymbol (T_i \cdot \boldsymbol I_1) \tau \right)}{\sum_{i=1}^N \exp \left(\boldsymbol (T_i \cdot \boldsymbol I_1) \tau \right)}$$
+    - Calculate cosine similarity of an image to all label embeddings, scale by temperature and then normalize to a probability distribution with the softmax function $$p(\boldsymbol X_{T,i} | \boldsymbol x_I) = \frac{\exp \left(\boldsymbol (\boldsymbol T_i \cdot \boldsymbol I_1) \tau \right)}{\sum_{i=1}^N \exp \left(\boldsymbol (\boldsymbol T_i \cdot \boldsymbol I_1) \tau \right)}$$
 
 
 | <img src="https://github.com/trapoom555/trapoom555-blog/blob/main/static/images/CLIP/clip_zero_shot_pred.png?raw=true" style= "display: block; margin-left: auto; margin-right: auto; width: 80%;"/>|
