@@ -2,7 +2,7 @@
 author: "trapoom555"
 title: "ViT : Vision Transformer"
 date: "2024-01-13"
-description: "The Transformer does not limited to texts."
+description: "The Transformer does not limited to texts. (Published : 2020)"
 tags: [
     "computer-vision",
     "paper-review"
