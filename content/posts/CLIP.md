@@ -2,11 +2,12 @@
 author: "trapoom555"
 title: "CLIP : Bridge between Image and text"
 date: "2024-01-14"
-description: "Learn image representation by text supervision. (Published: 2021)"
+description: "Learn image representation by text supervision. (Published: 2021.02, OpenAI)"
 tags: [
     "multi-modal",
     "computer-vision",
     "NLP",
+    "zero-shot",
     "paper-review"
 ]
 math: mathjax

@@ -2,7 +2,7 @@
 author: "trapoom555"
 title: "Transformer : The idea behind AI revolution"
 date: "2024-01-12"
-description: "Foundation of BERT, GPT, ViT, etc. (Published : 2017)"
+description: "Foundation of BERT, GPT, ViT, etc. (Published : 2017.06, Google)"
 tags: [
     "NLP",
     "paper-review"
