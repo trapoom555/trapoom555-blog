@@ -7,8 +7,8 @@ draft: true
 ---
 
 ## Basics
-- [Transformer](https://trapoom555.github.io/trapoom555-blog/posts/transformer/) ✅ 
-- [ViT](https://trapoom555.github.io/trapoom555-blog/posts/vit/) ✅
+- [Transformer](https://trapoom555.github.io/trapoom555-blog/posts/transformer/) (2017.06, Google) ✅ 
+- [ViT](https://trapoom555.github.io/trapoom555-blog/posts/vit/) (2020.10, Google) ✅
 - Imitaiton Learning
 
 ## Prompt Engineering
@@ -18,8 +18,8 @@ draft: true
 - [Lilianweng's Blog](https://lilianweng.github.io/posts/2023-03-15-prompt-engineering/)
 
 ## Multimodal
-- [CLIP](https://trapoom555.github.io/trapoom555-blog/posts/clip/) ✅
-- Frozen
+- [CLIP](https://trapoom555.github.io/trapoom555-blog/posts/clip/) (2021.02, OpenAI) ✅
+- Frozen (2021.07, Deepmind)
 - Flamingo
 - PALI
 
