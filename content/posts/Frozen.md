@@ -13,20 +13,19 @@ tags: [
     "paper-review"
 ]
 math: mathjax
-draft: true
 ---
 
 # Background
 
-Large Language Models (LLMs) are *few-shot learners*. They can learn new tasks without any gradient updates. It is sometimes called *in-context learning*. But there's a limitation that LLM can understand just only text data. This paper [[1]](#1) extends the capability of *few-shot learners* to multimodal settings and proved that the knowledge from LLM can be transfer to the multimodal model built upon it.
+Large Language Models (LLMs) are *few-shot learners*. They can learn new tasks without any gradient updates. It is sometimes called *in-context learning*. But there's a limitation that is LLM can understand just only text data. This paper [[1]](#1) extends the capability of *few-shot learners* to multimodal settings and proved that the knowledge from LLM can be transfer to the multimodal model built upon it.
 
 # Frozen ❄️
 
 ## Architecture
 
-With a pre-trained LLM having parameters $\theta$, It can be modified to have an understanding of image data by using an additional Neural Network called Vision Encoder ($v_\phi$) which can transform the image into  word token space. The image tokens will then be *prepended* to the text tokens before feeding into the LLM. The image tokens are named as a **visual prefix** since it's a prefix of the text tokens.
+With a pre-trained LLM having parameters $\theta$, It can be modified to have an understanding of image data by using an additional Neural Network called Vision Encoder ($v_\phi$) which can transform images into word tokens. The image tokens will then be *prepended* to the text tokens before feeding into the LLM. The image tokens are named as a **visual prefix** since it's a prefix of the text tokens.
 
-In this paper, NF-ResNet50 [[2]](#2) was used as a backbone of the Vision Encoder. And the output vector of NF-ResNet50 is linear transformed by learnable matrix in order to have the same dimension as text embeddings.
+In this paper, NF-ResNet50 [[2]](#2) was used as a backbone of the Vision Encoder. And the output vectors of NF-ResNet50 are linearly transformed by a *learnable* matrix in order to have the same dimension as text embeddings.
 
 | <img src="https://github.com/trapoom555/trapoom555-blog/blob/main/static/images/Frozen/frozen_architecture.png?raw=true" style= "display: block; margin-left: auto; margin-right: auto; width: 80%;"/>|
 |:--:| 
@@ -35,30 +34,30 @@ In this paper, NF-ResNet50 [[2]](#2) was used as a backbone of the Vision Encode
 
 ## Mathematics Formulation
 
-Suppose there's a sequence of $N$ images $\boldsymbol X_I \in \mathbb{R}^{N \times w\times h \times c}$, the Vision Encoder $v_\phi$ will transform the images to image embedding vectors $\boldsymbol O_I \in \mathbb{R}^{N \times E}$ which each vector has dimensionality $E$.
+Suppose there's a sequence of $N$ images $\boldsymbol X_I \in \mathbb{R}^{N \times w\times h \times c}$, the Vision Encoder $v_\phi$ will transform the images to image embedding vectors, which can be packed into a single matrix $\boldsymbol O_I \in \mathbb{R}^{N \times E}$ which each embedding vector has dimensionality $E$.
 
 $$\boldsymbol O_I = v_\phi \left(\boldsymbol X_I \right)$$
 
-To make the image and text embedding dimension the same, a *learnable* transformation matrix $W \in \mathbb{R}^{E \times D}$ is applied. And the image embedding vectors $\boldsymbol Y_I \in \mathbb{R}^{N\times D}$ are ready for the LLM.
+To make the image and text embedding dimension the same, a *learnable* transformation matrix $W \in \mathbb{R}^{E \times D}$ is applied. And the image embedding vectors $\boldsymbol Y_I \in \mathbb{R}^{N\times D}$ are ready to be an input for the LLM.
 
 $$\boldsymbol Y_I = \boldsymbol O_I \boldsymbol W $$
 
 Speaking of the text embedding side, there's a pre-trained text embedder $g_\theta$ which gives us text embedding vectors as a matrix $\boldsymbol Y_T \in \mathbb{R}^{M\times D}$ where $M$ is the number of text tokens.
 
-To formulate the proper input for the pre-trained [Transformer](https://trapoom555.github.io/trapoom555-blog/posts/transformer/) [[3]](#3) $f_\theta$, $\boldsymbol Y_I$ and $\boldsymbol Y_T$ are concatenated.
+To formulate the proper input for the pre-trained [Transformer](https://trapoom555.github.io/trapoom555-blog/posts/transformer/) [[3]](#3) (or LLM) $f_\theta$, $\boldsymbol Y_I$ and $\boldsymbol Y_T$ are concatenated.
 
 $$ \boldsymbol Y = \boldsymbol Y_I \oplus \boldsymbol Y_T$$
 
 
 ## Data
 
-The Frozen was trained on 3 millon image-caption pairs from Conceptual Captions dataset [[4]](#4)
+Frozen was trained on 3 millon image-caption pairs from Conceptual Captions dataset [[4]](#4)
 
 ## Freezing the LLM weights
 
-During training, the only weight updates happen at the Vision Encoder $v_\phi$ and the transformation matrix $\boldsymbol W$. **The weights in the pre-trained LLM are frozen.**
+During training, the only weight updates happen at the Vision Encoder $v_\phi$ and the transformation matrix $\boldsymbol W$. **The weights in the pre-trained LLM are frozen ❄️.**
 
-> The experiment shows that fine-tuning the LLM hurts the generalization since there're not many text-caption data compared to the text-only data. **The pre-trained LLM weights shold better be Frozen during training**
+> The experiment shows that fine-tuning the LLM hurts the generalization since there're not many text-caption data compared to the text-only data. **The pre-trained LLM weights shold better be Frozen ❄️ during training**
 
 ## Few-shot Learner
 It was discovered that training a Frozen exhibits some few-shot learner capabilities.
@@ -66,6 +65,27 @@ It was discovered that training a Frozen exhibits some few-shot learner capabili
 2. Fast access to general knowledge
 3. Fast binding of visual and linguistic elements
 
+### Rapid adaption to new tasks
+
+Although the Frozen has been trained on image captioning task. It can perform zero-shot in Vision Q&A (VQA) task, one-shot in outside-knowledge VQA and few-shot in image classification task.
+
+| <img src="https://github.com/trapoom555/trapoom555-blog/blob/main/static/images/Frozen/few_shot_various_tasks.png?raw=true" style= "display: block; margin-left: auto; margin-right: auto; width: 100%;"/>|
+|:--:| 
+| *Frozen can perform zero-shot and few-shot in various tasks (Image from [[1]](#1))* |
+
+> There's an experiment showing that using a larger LLM can boost the performance.
+
+### Fast access to general knowledge
+
+From the image above, the multimodal model can retrieve knowledge from pre-trained LLM and can answer the question which is not in the training set of image captioning.
+
+### Fast binding of visual and linguistic elements
+
+In the image below, Frozen can bind lion images with the word "blicket" and husky images with "dax" within just few-shot
+
+| <img src="https://github.com/trapoom555/trapoom555-blog/blob/main/static/images/Frozen/few_shot_binding.png?raw=true" style= "display: block; margin-left: auto; margin-right: auto; width: 100%;"/>|
+|:--:| 
+| *Frozen can learn word and image binding very quickly (Image from [[1]](#1))* |
 
 # References
 <a id="1">[1]</a>
