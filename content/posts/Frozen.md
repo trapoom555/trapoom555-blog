@@ -32,7 +32,7 @@ In this paper, NF-ResNet50 [[2]](#2) was used as a backbone of the Vision Encode
 | *Frozen Architecture (Image from [[1]](#1))* |
 
 
-## Mathematics Formulation
+## Mathematical Formulation
 
 Suppose there's a sequence of $N$ images $\boldsymbol X_I \in \mathbb{R}^{N \times w\times h \times c}$, the Vision Encoder $v_\phi$ will transform the images to image embedding vectors, which can be packed into a single matrix $\boldsymbol O_I \in \mathbb{R}^{N \times E}$ which each embedding vector has dimensionality $E$.
 
