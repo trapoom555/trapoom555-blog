@@ -19,7 +19,7 @@ draft: true
 
 ## Multimodal
 - [CLIP](https://trapoom555.github.io/trapoom555-blog/posts/clip/) (2021.02, OpenAI) ✅
-- [Frozen](https://trapoom555.github.io/trapoom555-blog/posts/frozen/) (2021.07, Deepmind)
+- [Frozen](https://trapoom555.github.io/trapoom555-blog/posts/frozen/) (2021.07, Deepmind) ✅
 - Flamingo
 - PALI
 
