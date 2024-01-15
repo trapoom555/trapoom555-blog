@@ -4,7 +4,7 @@ title: "CLIP : Bridge between Image and text"
 date: "2024-01-14"
 description: "Learn image representation by text supervision. (Published: 2021.02, OpenAI)"
 tags: [
-    "multi-modal",
+    "multimodal",
     "computer-vision",
     "NLP",
     "zero-shot",
