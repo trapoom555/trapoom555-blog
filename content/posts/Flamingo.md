@@ -2,7 +2,7 @@
 author: "trapoom555"
 title: "Flamingo : a Visual Language Model for Few-Shot Learning"
 date: "2024-01-16"
-description: "I'm a bird, just kidding, I'm a VLM 🦩 (Published: 2022.11, Deepmind)"
+description: "I'm a bird, just kidding, I'm a VLM 🦩 (Published: 2022.04, Deepmind)"
 tags: [
     "multimodal",
     "computer-vision",

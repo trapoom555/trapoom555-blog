@@ -2,7 +2,7 @@
 author: "trapoom555"
 title: "Frozen : Transfer LLM knowledge to Multimodal"
 date: "2024-01-15"
-description: "It's also a Few-shot learner (Published: 2021.07, Deepmind)"
+description: "It's also a Few-shot learner (Published: 2021.06, Deepmind)"
 tags: [
     "multimodal",
     "computer-vision",
