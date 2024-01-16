@@ -10,6 +10,7 @@ tags: [
     "few-shot",
     "zero-shot",
     "transfer-learning",
+    "visual-language-model",
     "paper-review"
 ]
 math: mathjax
