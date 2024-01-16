@@ -13,7 +13,7 @@ draft: true
     - Can handle with arbitrarily interleaved sequence of text and image
     - Seamlessly ingest images or videos as input
 
-- Flamingo was trained on a large-scale web copra (*without data annotation*) because of its arbitrarily interleaved flexibility
+- Flamingo was trained on a large-scale web corpora (*without data annotation*) because of its arbitrarily interleaved flexibility
 - Flamingo produce free-form text as an output
 - It outperform fine-tuning model by just few-shot learning on 6 tasks out of 16 tasks and outperform *all* zero-shot or few-shot methods in 16 benchmarks
 
@@ -39,7 +39,7 @@ draft: true
     - Per-image / Video Masking : In the cross attention layer, just one previous image is attended directly with the text tokens. The rest previous images are masked. But the information of all previous images are still kept in the self-attention layer. This helps the model to generalize the number of visual input in the sequence. (experimentally supported)
     - Objective : Minimizing a weighted sum of per-dataset expected negative log-likelihoods
 
-    $$\sum_{m=1}^{M} \lambda_m \cdot \mathbb{E}_{(x, y)\sim \mathcal{D}_m} \left[ - \sum_{l=1}^L \log p(y_l | y_{<l}, x_{\le l})\right]$$
+    $$\sum_{m=1}^{M} \lambda_m \cdot \mathbb E_{(x, y)\sim \mathcal D_m} \left[ - \sum_{l=1}^L \log p(y_l | y_{<l}, x_{\le l})\right]$$
 
 - Evaluation
     The goal is to build the model that can rapidly adapt to diverse and challenging tasks.
