@@ -57,7 +57,7 @@ Frozen was trained on 3 millon image-caption pairs from Conceptual Captions data
 
 During training, the only weight updates happen at the Vision Encoder $v_\phi$ and the transformation matrix $\boldsymbol W$. **The weights in the pre-trained LLM are frozen ❄️.**
 
-> The experiment shows that fine-tuning the LLM hurts the generalization since there're not many text-caption data compared to the text-only data. **The pre-trained LLM weights shold better be Frozen ❄️ during training**
+> The experiment shows that fine-tuning the LLM hurts the generalization since there're not many text-caption data compared to the text-only data. **The pre-trained LLM weights should better be Frozen ❄️ during training**
 
 ## Few-shot Learner
 It was discovered that training a Frozen exhibits some few-shot learner capabilities.
