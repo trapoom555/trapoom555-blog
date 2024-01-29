@@ -42,7 +42,7 @@ draft: true
 
 | Name | Published Date | Author | Citation | Description |
 | :---: | :---: | :---: | :---: | :---: |
-| PerAct | 2022.09 | Washington U. <br>NVIDIA | ![Dynamic JSON Badge](https://img.shields.io/badge/dynamic/json?url=https%3A%2F%2Fapi.semanticscholar.org%2Fgraph%2Fv1%2Fpaper%2F60c8d0619481eaafdd1189af610d0e636271fed5%3Ffields%3DcitationCount&query=%24.citationCount&label=citation) | |
+| [PerAct](https://trapoom555.github.io/trapoom555-blog/posts/peract/) ✅ | 2022.09 | Washington U. <br>NVIDIA | ![Dynamic JSON Badge](https://img.shields.io/badge/dynamic/json?url=https%3A%2F%2Fapi.semanticscholar.org%2Fgraph%2Fv1%2Fpaper%2F60c8d0619481eaafdd1189af610d0e636271fed5%3Ffields%3DcitationCount&query=%24.citationCount&label=citation) | |
 | VIMA | 2022.10 | Stanford <br> Macalester College<br> NVIDIA, Caltech <br> Tsinghua, UT Austin | ![Dynamic JSON Badge](https://img.shields.io/badge/dynamic/json?url=https%3A%2F%2Fapi.semanticscholar.org%2Fgraph%2Fv1%2Fpaper%2F25425e299101b13ec2872417a14f961f4f8aa18e%3Ffields%3DcitationCount&query=%24.citationCount&label=citation) | |
 | RT1 | 2022.12 | Google <br> Everyday Robotics | ![Dynamic JSON Badge](https://img.shields.io/badge/dynamic/json?url=https%3A%2F%2Fapi.semanticscholar.org%2Fgraph%2Fv1%2Fpaper%2Ffd1cf28a2b8caf2fe29af5e7fa9191cecfedf84d%3Ffields%3DcitationCount&query=%24.citationCount&label=citation) | |
 | PaLM-E | 2023.03 | Google | ![Dynamic JSON Badge](https://img.shields.io/badge/dynamic/json?url=https%3A%2F%2Fapi.semanticscholar.org%2Fgraph%2Fv1%2Fpaper%2F38fe8f324d2162e63a967a9ac6648974fc4c66f3%3Ffields%3DcitationCount&query=%24.citationCount&label=citation) | |
