@@ -42,7 +42,7 @@ draft: true
 
 | Name | Published Date | Author | Citation | Description |
 | :---: | :---: | :---: | :---: | :---: |
-| [PerAct](https://trapoom555.github.io/trapoom555-blog/posts/peract/) ✅ | 2022.09 | Washington U. <br>NVIDIA | ![Dynamic JSON Badge](https://img.shields.io/badge/dynamic/json?url=https%3A%2F%2Fapi.semanticscholar.org%2Fgraph%2Fv1%2Fpaper%2F60c8d0619481eaafdd1189af610d0e636271fed5%3Ffields%3DcitationCount&query=%24.citationCount&label=citation) | |
+| [PerAct](https://trapoom555.github.io/trapoom555-blog/posts/peract/) | 2022.09 | Washington U. <br>NVIDIA | ![Dynamic JSON Badge](https://img.shields.io/badge/dynamic/json?url=https%3A%2F%2Fapi.semanticscholar.org%2Fgraph%2Fv1%2Fpaper%2F60c8d0619481eaafdd1189af610d0e636271fed5%3Ffields%3DcitationCount&query=%24.citationCount&label=citation) | |
 | VIMA | 2022.10 | Stanford <br> Macalester College<br> NVIDIA, Caltech <br> Tsinghua, UT Austin | ![Dynamic JSON Badge](https://img.shields.io/badge/dynamic/json?url=https%3A%2F%2Fapi.semanticscholar.org%2Fgraph%2Fv1%2Fpaper%2F25425e299101b13ec2872417a14f961f4f8aa18e%3Ffields%3DcitationCount&query=%24.citationCount&label=citation) | |
 | RT1 | 2022.12 | Google <br> Everyday Robotics | ![Dynamic JSON Badge](https://img.shields.io/badge/dynamic/json?url=https%3A%2F%2Fapi.semanticscholar.org%2Fgraph%2Fv1%2Fpaper%2Ffd1cf28a2b8caf2fe29af5e7fa9191cecfedf84d%3Ffields%3DcitationCount&query=%24.citationCount&label=citation) | |
 | PaLM-E | 2023.03 | Google | ![Dynamic JSON Badge](https://img.shields.io/badge/dynamic/json?url=https%3A%2F%2Fapi.semanticscholar.org%2Fgraph%2Fv1%2Fpaper%2F38fe8f324d2162e63a967a9ac6648974fc4c66f3%3Ffields%3DcitationCount&query=%24.citationCount&label=citation) | |
@@ -59,8 +59,9 @@ draft: true
 | Euraka | 2023.10 | NVIDIA | ![Dynamic JSON Badge](https://img.shields.io/badge/dynamic/json?url=https%3A%2F%2Fapi.semanticscholar.org%2Fgraph%2Fv1%2Fpaper%2F6ca16c1c2c60ceda87242c8f8e522d12cc4a13bc%3Ffields%3DcitationCount&query=%24.citationCount&label=citation) | |
 | Mobile ALOHA | 2024.01 | Stanford | ![Dynamic JSON Badge](https://img.shields.io/badge/dynamic/json?url=https%3A%2F%2Fapi.semanticscholar.org%2Fgraph%2Fv1%2Fpaper%2Ffc3819a50705fc3cf90ab92f2a206b858fef3b19%3Ffields%3DcitationCount&query=%24.citationCount&label=citation) | |
 
-## Datasets
+## Datasets / Benchmarks
 | Name | Published Date | Author | Citation | Description |
 | :---: | :---: | :---: | :---: | :---: |
 | Open X-Embodiment | 2023.10 | Worldwide | ![Dynamic JSON Badge](https://img.shields.io/badge/dynamic/json?url=https%3A%2F%2Fapi.semanticscholar.org%2Fgraph%2Fv1%2Fpaper%2Fef7d31137ef06c5be8c2824ecc5af6ce3358cc8f%3Ffields%3DcitationCount&query=%24.citationCount&label=citation) | |
-
+| VIMA-BENCH | 2023.10 | Worldwide | ![Dynamic JSON Badge](https://img.shields.io/badge/dynamic/json?url=https%3A%2F%2Fapi.semanticscholar.org%2Fgraph%2Fv1%2Fpaper%2F25425e299101b13ec2872417a14f961f4f8aa18e%3Ffields%3DcitationCount&query=%24.citationCount&label=citation) | |
+| CALVIN | 2023.10 | Worldwide | ![Dynamic JSON Badge](https://img.shields.io/badge/dynamic/json?url=https%3A%2F%2Fapi.semanticscholar.org%2Fgraph%2Fv1%2Fpaper%2Ff69f95835deec7748a688675721b6d581b60d42b%3Ffields%3DcitationCount&query=%24.citationCount&label=citation) | |
