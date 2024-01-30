@@ -4,10 +4,13 @@ title: "PerAct : Perceiver-Actor"
 date: "2024-01-29"
 math: mathjax
 tags: [
-    "multi-modal",
+    "multimodal",
     "robot-learning",
     "manipulator",
-    "paper-review"
+    "paper-review",
+    "computer-vision",
+    "NLP",
+    "transfer-learning"
 ]
 ---
 

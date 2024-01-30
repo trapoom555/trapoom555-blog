@@ -4,10 +4,13 @@ title: "VIMA : Visuomotor Attention Agent"
 date: "2024-01-30"
 math: mathjax
 tags: [
-    "multi-modal",
+    "multimodal",
     "robot-learning",
     "manipulator",
-    "paper-review"
+    "paper-review",
+    "computer-vision",
+    "NLP",
+    "transfer-learning"
 ]
 ---
 
