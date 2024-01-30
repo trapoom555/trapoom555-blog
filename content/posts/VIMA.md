@@ -114,5 +114,3 @@ Raffel, Colin, et al. "Exploring the limits of transfer learning with a unified 
 
 <a id="4">[4]</a> 
 Shridhar, Mohit, Lucas Manuelli, and Dieter Fox. "Perceiver-actor: A multi-task transformer for robotic manipulation." Conference on Robot Learning. PMLR, 2023.
-
-<a id="5">[5]</a> 
