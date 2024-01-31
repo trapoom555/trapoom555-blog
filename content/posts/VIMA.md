@@ -39,7 +39,7 @@ The bounding boxes are obtained by applying a domain fine-tuned Mask RCNN [[2]](
 ### Tokenizer
 
 - Text prompt : frozen T5 [[3]](#3) (111M parameters)
-- Single object images : ViT
+- Single object images : [ViT](https://trapoom555.github.io/trapoom555-blog/posts/vit/) [[4]](#4)
 - Bounding boxes : MLP
 
 ### Action Decoder
@@ -55,7 +55,7 @@ The action space in VIMA is designed to be in $SE(2)$ which means the robot can 
 
 ### Data
 
-VIMA-BENCH [[1]](#1) dataset is much larger than [PerAct](https://trapoom555.github.io/trapoom555-blog/posts/peract/) [[4]](#4). The dataset includes 50K trajectories per task, 650K successful trajectories in total. The dataset is designed to measure the zero-shot generalization of the model. If a model can perform well in a higher level tasks, it means that the model shows good results in generalization.
+VIMA-BENCH [[1]](#1) dataset is much larger than [PerAct](https://trapoom555.github.io/trapoom555-blog/posts/peract/) [[5]](#5). The dataset includes 50K trajectories per task, 650K successful trajectories in total. The dataset is designed to measure the zero-shot generalization of the model. If a model can perform well in a higher level tasks, it means that the model shows good results in generalization.
 
 ### Data Augmentation
 
@@ -116,4 +116,7 @@ He, K., Gkioxari, G., Doll´ar, P., and Girshick, R. Mask r-cnn. arXiv preprint 
 Raffel, Colin, et al. "Exploring the limits of transfer learning with a unified text-to-text transformer." The Journal of Machine Learning Research 21.1 (2020): 5485-5551.
 
 <a id="4">[4]</a> 
+Dosovitskiy, Alexey, et al. "An image is worth 16x16 words: Transformers for image recognition at scale." arXiv preprint arXiv:2010.11929 (2020).
+
+<a id="5">[5]</a> 
 Shridhar, Mohit, Lucas Manuelli, and Dieter Fox. "Perceiver-actor: A multi-task transformer for robotic manipulation." Conference on Robot Learning. PMLR, 2023.
