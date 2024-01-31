@@ -105,7 +105,7 @@ When evaluating on progressively harder settings, VIMA incurs much less performa
 - Using 6 variables for $SE(2)$ representation is redundant
 - I found that the Vision Encoder plays an improtant role in success.
 
-# Reference
+# References
 <a id="1">[1]</a> 
 Jiang, Yunfan, et al. "Vima: General robot manipulation with multimodal prompts." arXiv (2022).
 

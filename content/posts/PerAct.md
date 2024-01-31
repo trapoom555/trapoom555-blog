@@ -111,7 +111,7 @@ Cross-entropy (take the problem as a classification problem)
 - It doesn't generalize well. According to the exeriment, changing a drawer color and texture can make robot confuse.
 - Data Augmentation doesn't consider the kinematics feasibility. The actual robot may cannot reach some poses.
 
-# Reference
+# References
 <a id="1">[1]</a> 
 Shridhar, Mohit, Lucas Manuelli, and Dieter Fox. "Perceiver-actor: A multi-task transformer for robotic manipulation." Conference on Robot Learning. PMLR, 2023.
 
