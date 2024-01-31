@@ -8,34 +8,30 @@ draft: true
 
 ## Basics
 
-- [Transformer](https://trapoom555.github.io/trapoom555-blog/posts/transformer/) (2017.06, Google) ✅  ![Dynamic JSON Badge](https://img.shields.io/badge/dynamic/json?url=https%3A%2F%2Fapi.semanticscholar.org%2Fgraph%2Fv1%2Fpaper%2F204e3073870fae3d05bcbc2f6a8e263d9b72e776%3Ffields%3DcitationCount&query=%24.citationCount&label=citation)
-
-- [ViT](https://trapoom555.github.io/trapoom555-blog/posts/vit/) (2020.10, Google) ✅
-![Dynamic JSON Badge](https://img.shields.io/badge/dynamic/json?url=https%3A%2F%2Fapi.semanticscholar.org%2Fgraph%2Fv1%2Fpaper%2F268d347e8a55b5eb82fb5e7d2f800e33c75ab18a%3Ffields%3DcitationCount&query=%24.citationCount&label=citation)
-
-- Reinforcement Learning
-
-- Imitaiton Learning
+| Name | Published Date | Author | Citation | Description |
+| :---: | :---: | :---: | :---: | :---: |
+| [Transformer](https://trapoom555.github.io/trapoom555-blog/posts/transformer/) | 2017.06 | Google |  ![Dynamic JSON Badge](https://img.shields.io/badge/dynamic/json?url=https%3A%2F%2Fapi.semanticscholar.org%2Fgraph%2Fv1%2Fpaper%2F204e3073870fae3d05bcbc2f6a8e263d9b72e776%3Ffields%3DcitationCount&query=%24.citationCount&label=citation) | |
+| [ViT](https://trapoom555.github.io/trapoom555-blog/posts/vit/) | 2020.10 | Google | ![Dynamic JSON Badge](https://img.shields.io/badge/dynamic/json?url=https%3A%2F%2Fapi.semanticscholar.org%2Fgraph%2Fv1%2Fpaper%2F268d347e8a55b5eb82fb5e7d2f800e33c75ab18a%3Ffields%3DcitationCount&query=%24.citationCount&label=citation) | |
+| Reinforcement Learning | | | | |
+| Imitaiton Learning | | | | |
 
 ## Prompt Engineering
-- Chain of Thought
-- Self-Consistency
-- Least-to-most Prompting
-- [Lilianweng's Blog](https://lilianweng.github.io/posts/2023-03-15-prompt-engineering/)
+
+| Name | Published Date | Author | Citation | Description |
+| :---: | :---: | :---: | :---: | :---: |
+| Chain of Thought | 2022.01 | Google | ![Dynamic JSON Badge](https://img.shields.io/badge/dynamic/json?url=https%3A%2F%2Fapi.semanticscholar.org%2Fgraph%2Fv1%2Fpaper%2F1b6e810ce0afd0dd093f789d2b2742d047e316d5%3Ffields%3DcitationCount&query=%24.citationCount&label=citation) | |
+| Self-Consistency | 2022.03 | Google | ![Dynamic JSON Badge](https://img.shields.io/badge/dynamic/json?url=https%3A%2F%2Fapi.semanticscholar.org%2Fgraph%2Fv1%2Fpaper%2F5f19ae1135a9500940978104ec15a5b8751bc7d2%3Ffields%3DcitationCount&query=%24.citationCount&label=citation) | |
+| Least-to-most Prompting | 2022.05 | Google | ![Dynamic JSON Badge](https://img.shields.io/badge/dynamic/json?url=https%3A%2F%2Fapi.semanticscholar.org%2Fgraph%2Fv1%2Fpaper%2F5437e8adab596d7294124c0e798708e050e25321%3Ffields%3DcitationCount&query=%24.citationCount&label=citation) | |
+| [Lilianweng's Blog](https://lilianweng.github.io/posts/2023-03-15-prompt-engineering/) | | | | |
 
 ## Multimodal
-- [CLIP](https://trapoom555.github.io/trapoom555-blog/posts/clip/) (2021.02, OpenAI) ✅
-![Dynamic JSON Badge](https://img.shields.io/badge/dynamic/json?url=https%3A%2F%2Fapi.semanticscholar.org%2Fgraph%2Fv1%2Fpaper%2F6f870f7f02a8c59c3e23f407f3ef00dd1dcf8fc4%3Ffields%3DcitationCount&query=%24.citationCount&label=citation)
 
-- [Frozen](https://trapoom555.github.io/trapoom555-blog/posts/frozen/) (2021.06, Deepmind) ✅
-![Dynamic JSON Badge](https://img.shields.io/badge/dynamic/json?url=https%3A%2F%2Fapi.semanticscholar.org%2Fgraph%2Fv1%2Fpaper%2F01b5412f3d17e90e09226d7c40ad4d4468a1414d%3Ffields%3DcitationCount&query=%24.citationCount&label=citation)
-
-
-- [Flamingo](https://trapoom555.github.io/trapoom555-blog/posts/flamingo/) (2022.04, Deepmind) ✅
-![Dynamic JSON Badge](https://img.shields.io/badge/dynamic/json?url=https%3A%2F%2Fapi.semanticscholar.org%2Fgraph%2Fv1%2Fpaper%2F26218bdcc3945c7edae7aa2adbfba4cd820a2df3%3Ffields%3DcitationCount&query=%24.citationCount&label=citation)
-
-- PALI (2022.09, Google)
-![Dynamic JSON Badge](https://img.shields.io/badge/dynamic/json?url=https%3A%2F%2Fapi.semanticscholar.org%2Fgraph%2Fv1%2Fpaper%2F28630034bb29760df01ab033b743e30b37f336ae%3Ffields%3DcitationCount&query=%24.citationCount&label=citation)
+| Name | Published Date | Author | Citation | Description |
+| :---: | :---: | :---: | :---: | :---: |
+| [CLIP](https://trapoom555.github.io/trapoom555-blog/posts/clip/) | 2021.02 | OpenAI | ![Dynamic JSON Badge](https://img.shields.io/badge/dynamic/json?url=https%3A%2F%2Fapi.semanticscholar.org%2Fgraph%2Fv1%2Fpaper%2F6f870f7f02a8c59c3e23f407f3ef00dd1dcf8fc4%3Ffields%3DcitationCount&query=%24.citationCount&label=citation) | |
+| [Frozen](https://trapoom555.github.io/trapoom555-blog/posts/frozen/) | 2021.06 | Deepmind | ![Dynamic JSON Badge](https://img.shields.io/badge/dynamic/json?url=https%3A%2F%2Fapi.semanticscholar.org%2Fgraph%2Fv1%2Fpaper%2F01b5412f3d17e90e09226d7c40ad4d4468a1414d%3Ffields%3DcitationCount&query=%24.citationCount&label=citation) | |
+| [Flamingo](https://trapoom555.github.io/trapoom555-blog/posts/flamingo/) | 2022.04 | Deepmind | ![Dynamic JSON Badge](https://img.shields.io/badge/dynamic/json?url=https%3A%2F%2Fapi.semanticscholar.org%2Fgraph%2Fv1%2Fpaper%2F26218bdcc3945c7edae7aa2adbfba4cd820a2df3%3Ffields%3DcitationCount&query=%24.citationCount&label=citation) | |
+| PALI | 2022.09 | Google | ![Dynamic JSON Badge](https://img.shields.io/badge/dynamic/json?url=https%3A%2F%2Fapi.semanticscholar.org%2Fgraph%2Fv1%2Fpaper%2F28630034bb29760df01ab033b743e30b37f336ae%3Ffields%3DcitationCount&query=%24.citationCount&label=citation) | |
 
 ## Embodied AI
 ### Multimodal ML x Robot Manipulator
