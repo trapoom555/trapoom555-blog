@@ -55,9 +55,10 @@ draft: true
 | Euraka | 2023.10 | NVIDIA | ![Dynamic JSON Badge](https://img.shields.io/badge/dynamic/json?url=https%3A%2F%2Fapi.semanticscholar.org%2Fgraph%2Fv1%2Fpaper%2F6ca16c1c2c60ceda87242c8f8e522d12cc4a13bc%3Ffields%3DcitationCount&query=%24.citationCount&label=citation) | |
 | Mobile ALOHA | 2024.01 | Stanford | ![Dynamic JSON Badge](https://img.shields.io/badge/dynamic/json?url=https%3A%2F%2Fapi.semanticscholar.org%2Fgraph%2Fv1%2Fpaper%2Ffc3819a50705fc3cf90ab92f2a206b858fef3b19%3Ffields%3DcitationCount&query=%24.citationCount&label=citation) | |
 
-## Datasets / Benchmarks
+### Datasets / Benchmarks
 | Name | Published Date | Author | Citation | Description |
 | :--- | :--- | :--- | :--- | :--- |
+| CALVIN | 2021.12 | Freiburg U. <br> University of Technology Nuremberg | ![Dynamic JSON Badge](https://img.shields.io/badge/dynamic/json?url=https%3A%2F%2Fapi.semanticscholar.org%2Fgraph%2Fv1%2Fpaper%2Ff69f95835deec7748a688675721b6d581b60d42b%3Ffields%3DcitationCount&query=%24.citationCount&label=citation) | |
+| SayCan | 2022.04 | Google | ![Dynamic JSON Badge](https://img.shields.io/badge/dynamic/json?url=https%3A%2F%2Fapi.semanticscholar.org%2Fgraph%2Fv1%2Fpaper%2Fcb5e3f085caefd1f3d5e08637ab55d39e61234fc%3Ffields%3DcitationCount&query=%24.citationCount&label=citation) | |
+| VIMA-BENCH | 2022.10 | Stanford <br> Macalester College<br> NVIDIA, Caltech <br> Tsinghua, UT Austin | ![Dynamic JSON Badge](https://img.shields.io/badge/dynamic/json?url=https%3A%2F%2Fapi.semanticscholar.org%2Fgraph%2Fv1%2Fpaper%2F25425e299101b13ec2872417a14f961f4f8aa18e%3Ffields%3DcitationCount&query=%24.citationCount&label=citation) | |
 | Open X-Embodiment | 2023.10 | Worldwide | ![Dynamic JSON Badge](https://img.shields.io/badge/dynamic/json?url=https%3A%2F%2Fapi.semanticscholar.org%2Fgraph%2Fv1%2Fpaper%2Fef7d31137ef06c5be8c2824ecc5af6ce3358cc8f%3Ffields%3DcitationCount&query=%24.citationCount&label=citation) | |
-| VIMA-BENCH | 2023.10 | Worldwide | ![Dynamic JSON Badge](https://img.shields.io/badge/dynamic/json?url=https%3A%2F%2Fapi.semanticscholar.org%2Fgraph%2Fv1%2Fpaper%2F25425e299101b13ec2872417a14f961f4f8aa18e%3Ffields%3DcitationCount&query=%24.citationCount&label=citation) | |
-| CALVIN | 2023.10 | Worldwide | ![Dynamic JSON Badge](https://img.shields.io/badge/dynamic/json?url=https%3A%2F%2Fapi.semanticscholar.org%2Fgraph%2Fv1%2Fpaper%2Ff69f95835deec7748a688675721b6d581b60d42b%3Ffields%3DcitationCount&query=%24.citationCount&label=citation) | |
