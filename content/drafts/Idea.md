@@ -16,4 +16,5 @@ draft: true
 2. In context learning are very costly at inference, we can't use in robotics
 3. Flamingo uses a very dense architecture. Can we replace the FFN to something like Mixture of Experts to increase the efficiency.
 4. Can I apply Few-shot learning to the imitation learning ?
+5. Imitate first and then learn with RL in simulation data.
 
