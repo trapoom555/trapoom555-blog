@@ -1,6 +1,6 @@
 ---
 author: "trapoom555"
-title: "RT1 : Robot Transformer 1"
+title: "RT-1 : Robot Transformer 1"
 date: "2024-01-31"
 math: mathjax
 tags: [
@@ -16,11 +16,11 @@ tags: [
 
 ## Framework
 
-RT1 [[1]](#1) takes images and language instructions and outputs discretized base and arm actions to control mobile manipulator in a close-loop manner. The framework not only tries to outperform other baselines performance but also aims to reach **real-time** execution as much as possible.
+RT-1 [[1]](#1) takes images and language instructions and outputs discretized base and arm actions to control mobile manipulator in a close-loop manner. The framework not only tries to outperform other baselines performance but also aims to reach **real-time** execution as much as possible.
 
 ## Architecture
 
-RT1 combines efficient models together to build an efficient model with 35M parameters. The models include FiLM [[2]](#2), EfficientNet-B3 [[3]](#3), Universal Sentence Encoder [[4]](#4), TokenLearner [[5]](#5) and [Transformer](https://trapoom555.github.io/trapoom555-blog/posts/transformer/) [[6]](#6). This combination can be performed in real environment at $3\ \text{Hz}$.
+RT-1 combines efficient models together to build an efficient model with 35M parameters. The models include FiLM [[2]](#2), EfficientNet-B3 [[3]](#3), Universal Sentence Encoder [[4]](#4), TokenLearner [[5]](#5) and [Transformer](https://trapoom555.github.io/trapoom555-blog/posts/transformer/) [[6]](#6). This combination can be performed in real environment at $3\ \text{Hz}$.
 
 | <img src="https://github.com/trapoom555/trapoom555-blog/blob/main/static/images/RT1/architecture.png?raw=true" style= "display: block; margin-left: auto; margin-right: auto; width: 80%;"/>|
 |:--:| 
