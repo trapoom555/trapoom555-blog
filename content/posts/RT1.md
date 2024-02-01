@@ -63,7 +63,7 @@ Categorical cross-entropy loss
 
 ### Resources
 
-\- 
+*Not mentioned*
 
 ## Performance
 
