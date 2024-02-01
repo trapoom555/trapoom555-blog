@@ -103,7 +103,7 @@ X only appeared in simulated “pick X” task.
 
 ## Discussions and Limitations
 
-- Real-world data is expensive. If we experiment on a different robot, we need to recollect the data.
+- Real-world data is expensive.
 - Again, the action output is discretized similar to [VIMA](https://trapoom555.github.io/trapoom555-blog/posts/vima/) [[7]](#7) and [PerAct](https://trapoom555.github.io/trapoom555-blog/posts/peract/) [[8]](#8). This approach is not applicable to tasks which are sensitive to path.
 - Imitation Learning Method cannot surpass the performance of the demonstrators
 - RT-1 cannot generalize to completely new motion that has not been seen before
