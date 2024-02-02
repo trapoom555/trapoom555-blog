@@ -5,7 +5,7 @@ author: trapoom555
 
 Hi 👋 I'm Trapoom from Thailand 🇹🇭. 
 
-<img src="https://github.com/trapoom555/trapoom555-blog/blob/main/static/images/about/trapoom_pic.jpg?raw=true" alt="Avatar" style="display: block;
+<img src="https://github.com/trapoom555/trapoom555-blog/blob/main/static/images/about/trapoom_pic_compressed.jpg?raw=true" alt="Avatar" style="display: block;
   margin-left: auto;
   margin-right: auto;
   width: 30%;
