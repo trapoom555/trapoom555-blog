@@ -48,6 +48,71 @@ where $h_l^m$ is the sast transformer block's activation and $W_y$ is an learnab
 
 # BERT (2018.10)
 
+Unlike GPT1 which takes unidirectional signal to predict the next token, BERT (Bidirectional Encoder Representation from Transformer) [] consider *Bidirectional Signal* to make language understanding better. BERT outperformed other state-of-the-art in many language tasks. It can even outperform a task-specific model and GPT-1. It implies that Bidirectional encoding is a useful way to represent language. And using pre-training language model as a base model (similar to GPT1 idea) and fine-tuning it is a way to make predictions more accurate.
 
+## Architecture
+
+BERT is an *encoder only* Transformer model. $\text{BERT}_ \text{BASE}$ has 12 layers with 110M parameters. The size is similar to the GPT1 for comparison perposes. There's also a $\text{BERT}_ \text{LARGE}$ which comprises of 24 layers with the size of 340M parameters.
+
+| <img src="https://github.com/trapoom555/trapoom555-blog/blob/main/static/images/A_5_years_brief_story_of_LLMs/BERT_arch.png?raw=true" style= "display: block; margin-left: auto; margin-right: auto; width: 100%;"/>|
+|:--:| 
+| *BERT Architecture (Image from [])* |
+
+BERT consists of 2 training stages similar to GPT1. The first stage is pre-training and then fine-tuning to a specific downstream tasks.
+
+## Pre-training
+
+## Input
+
+There'll be 2 sentences as a BERT's input to make it applicable to many downstream tasks. Two sentences are separated by a [SEP] token. In each sentence, there'll be [MASK] tokens at random positions. At the starting point of the input, [CLS] is added to be a room for the sentence-level output prediction "C".
+
+
+
+| <img src="https://github.com/trapoom555/trapoom555-blog/blob/main/static/images/A_5_years_brief_story_of_LLMs/BERT_input_example.png?raw=true" style= "display: block; margin-left: auto; margin-right: auto; width: 60%;"/>|
+|:--:| 
+| *BERT Input Example (Image from [])* |
+
+### Input Masking
+
+$15\\%$ of the token positions are chosen to be
+1. $80\\%$ replace with [MASK] tokens
+2. $10\\%$ choose random tokens
+3. $10\\%$ leave them as they are
+
+Note that the $15\\%$ of the tokens are not always masked because in the fine-tuning stage, there's no [MASK] tokens.
+
+### Input representation
+
+The representation mainly follows Transformer. And also added Segment Embeddings to indicate whether the token is in the first sentence or the second one.
+
+| <img src="https://github.com/trapoom555/trapoom555-blog/blob/main/static/images/A_5_years_brief_story_of_LLMs/BERT_input_representation.png?raw=true" style= "display: block; margin-left: auto; margin-right: auto; width: 100%;"/>|
+|:--:| 
+| *BERT Input Representation (Image from [])* |
+
+## Objectives
+
+Pre-training's goal is to achieve these 2 objectives.
+
+### Masked LM
+
+This objective is to map output tokens to  correct tokens while the inputs of that token are masked. 
+
+It's quite similar to the GPT1 objective but the differences are only that the masked input is in the middle of the sentence and bidirectional signal is used to predict that token.
+
+### Next Sentence Prediction (NSP)
+
+In order to model the relationship between two sentences, the model will predict whether the second sentence in the input is a consecutive sentence to the first one. The prediction is a binary value which will output at the first token of the output sequence (denoted as "C").
+
+## Downstream Tasks
+
+Due to the flexible structure of BERT, it can be applied to many downstream tasks by end-to-end fine-tuning it.
+
+Most of the time if the downstram tasks are to predict the sentence level-output, the first output token "C" is used for the prediction output. But if the output of the downstream tasks depend on an input sequence length, then the token corresponding to the input token will be the output of the downsteam tasks.
+
+| <img src="https://github.com/trapoom555/trapoom555-blog/blob/main/static/images/A_5_years_brief_story_of_LLMs/BERT_downstream_tasks.png?raw=true" style= "display: block; margin-left: auto; margin-right: auto; width: 100%;"/>|
+|:--:| 
+| *BERT in Downstream Tasks (Image from [])* |
+
+# GPT2 (2019.02)
 
 # References
