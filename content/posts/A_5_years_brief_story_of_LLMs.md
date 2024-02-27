@@ -227,4 +227,27 @@ There're some interesting insights to note about FLAN.
 |:--:| 
 | *instruction-tuned model with and without few-shot prompting <br> (Image from [])* |
 
+# InstructGPT (2022.03)
+
+At this point, the Language Models are more generalist, but their answers still don't align with *user inttents*. OpenAI solved this problem by proposing a simple but very useful method to train a model called InstructGPT [].
+
+The method consist of 3 stages
+
+| <img src="https://github.com/trapoom555/trapoom555-blog/blob/main/static/images/A_5_years_brief_story_of_LLMs/InstructGPT_steps.png?raw=true" style= "display: block; margin-left: auto; margin-right: auto; width: 100%;"/>|
+|:--:| 
+| *Three steps of training the InstructGPT <br> (Image from [])* |
+
+1. **Supervised Fine-Tuning** Starting with the GPT3 [], Supervised fune-tuning (SFT) method is applied to train the model to mimic labeler's answers.
+
+2. **Reward Model Training** Only SFT itself can push the model to be more align with user intents, but it will not be generalized for the unseen prompts. This method can be thought of a Behavioral Cloning in Imitation Learning. Therefore, the interactive learning using Reinforment Learning is adopted here. First, we are going to train a **Reward Model** which is initialized with a supervise fine-tuned 6B GPT3 model, replacing an unembedding layer with a projection layer, which maps the output to a corresponding scalar value. The data used to train the reward model is rankings of $K$ model's outputs. To optimize the Reward Model, we use the following loss function.
+$$L(\theta) = -\frac{1}{K \choose 2} \mathbb{E}_{(x, y_w, y_l) \sim D} [ \log (\sigma (r _ \theta  (x, y_w) - r _ \theta (x, y_l) )) ]$$
+where $r _ \theta (x, y)$ is the scalar output of the reward model for prompt $x$ and output $y$ with parameters $\theta$, $y_w$ is the *preferred completion* outof the pair of $y_w$ and $y_l$. The loss function will be minimized if the reward value of preferred answer is greater than another one as much as possible.
+3. **Optimize a Policy against the Reward Model** The supervised fine-tuned model *interactively* updates its gradient by using **Proximal Policy Optimization (PPO)** using the trained Reward Model as a reward function.
+
+The result on human preferences is impressive. With only 1.3B parameters, the InstructGPT outperforms a 175B GPT3 model.
+
+| <img src="https://github.com/trapoom555/trapoom555-blog/blob/main/static/images/A_5_years_brief_story_of_LLMs/InstructGPT_results.png?raw=true" style= "display: block; margin-left: auto; margin-right: auto; width: 80%;"/>|
+|:--:| 
+| *Human preference results winrate against the 175B SFT model <br> (Image from [])* |
+
 # References
