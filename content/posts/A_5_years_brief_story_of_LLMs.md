@@ -250,4 +250,28 @@ The result on human preferences is impressive. With only 1.3B parameters, the In
 |:--:| 
 | *Human preference results winrate against the 175B SFT model <br> (Image from [])* |
 
+# PaLM (2022.04)
+Google noticed that scaling the parameter size of a Large Language Model benefits the performance. **What if we further scale up the size ?** In this work, the model size was scaled to 540B which is called PaLM [] (Pathways Language Model).
+
+PaLM is a *decoder-only* Transformer architecture with some modifications. It was trained on 780B tokens high-quality corpus with multilingual natural language and code.
+
+| <img src="https://github.com/trapoom555/trapoom555-blog/blob/main/static/images/A_5_years_brief_story_of_LLMs/PaLM_data.png?raw=true" style= "display: block; margin-left: auto; margin-right: auto; width: 60%;"/>|
+|:--:| 
+| *High-quality data used to train PaLM (Image from [])* |
+
+
+The followings are key takeaways from this paper.
+1. They adopted Pathways [] for a large-scale training which enables training a single model across ten of thousands of accelerator chips in a highly efficient manner. (PaLM was trained on 6144 TPU v4 chips)
+
+2. Up to 540B the performance continues to improve. There's no observation for the saturation point yet.
+
+3. With this scale combined with chain-of-thought prompting [], the model outperform SOTA fine-tuned language model with simple few-shots.
+
+4. It breaks the "power law". Scaling from 62B to 540B results in a drastic jump in accuracy compared to scaling from 8B to 62B.
+
+5. It can do better job in multilingual tasks and can outperform prior SOTA translation tasks.
+
+# OPT (2022.05)
+
+
 # References
