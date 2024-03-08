@@ -273,5 +273,10 @@ The followings are key takeaways from this paper.
 
 # OPT (2022.05)
 
+OPT stands for Open Pre-trained Transformers. This paper [] aims to replicate GPT-3 and contribute model weights with size of 125M to 175B to research community. The model is a decoder-only Transformer. Training with 180B tokens of curated various open-source datasets, OPT achieves comparable performance to GPT-3 in zero-shot, one-shot and few-shot settings across 14 NLP tasks. The training process of OPT-175B consumes only 1/7th compared to GPT-3.
+
+| <img src="https://github.com/trapoom555/trapoom555-blog/blob/main/static/images/A_5_years_brief_story_of_LLMs/OPT_performance.png?raw=true" style= "display: block; margin-left: auto; margin-right: auto; width: 60%;"/>|
+|:--:| 
+| *OPT and GPT-3 performance across 14 NLP tasks (Image from [])* |
 
 # References
