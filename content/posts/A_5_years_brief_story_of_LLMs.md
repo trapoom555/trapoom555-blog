@@ -279,4 +279,26 @@ OPT stands for Open Pre-trained Transformers. This paper [] aims to replicate GP
 |:--:| 
 | *OPT and GPT-3 performance across 14 NLP tasks (Image from [])* |
 
+# Emergent Abilities (2022.06)
+
+> **Emergent Abilities** [] are abilities which are not present in smaller models but are present in larger ones
+
+To be concise, the emergence of these abilities not only depends on model size, it also depends on amount of training computation, training data size and data quality.
+
+The emergent abilities observed in this paper include
+1. **Few-shot prompting** : giving few examples without fine-tuning makes model understand the task. By increasing the model size, at a certain point, the model learns the few-shot prompting ability.
+| <img src="https://github.com/trapoom555/trapoom555-blog/blob/main/static/images/A_5_years_brief_story_of_LLMs/emergent_fewshot_prompting.png?raw=true" style= "display: block; margin-left: auto; margin-right: auto; width: 100%;"/>|
+|:--:| 
+| *Few-shot prompting performance over several benchmarks (Image from [])* |
+
+2. **Augmented prompting strategies** (Other promting strategies)
+    - <u>Multi-step reasoning</u> : chain-of-thought prompting [] (CoT)
+    - <u>Instruction following</u> : fine-tuning the model with instruction prompting, the model shows ability to reponse unseen tasks appropriately.
+    - <u>Program execution</u> : finetuning language models to predict intermediate outputs (“scratchpad”) enables them to successfully execute such multi-step computations.
+    - <u>Model calibration</u> : a True/False technique, where models first propose answers and then evaluate the probability “P(True)” that their answers are correct.
+| <img src="https://github.com/trapoom555/trapoom555-blog/blob/main/static/images/A_5_years_brief_story_of_LLMs/emergent_prompting_strategy.png?raw=true" style= "display: block; margin-left: auto; margin-right: auto; width: 100%;"/>|
+|:--:| 
+| *Specialized prompting or fine-tuning method can be emergent (Image from [])* |
+
+
 # References
