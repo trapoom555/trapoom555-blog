@@ -300,5 +300,30 @@ The emergent abilities observed in this paper include
 |:--:| 
 | *Specialized prompting or fine-tuning method can be emergent (Image from [])* |
 
+# Scaling FLAN (2022.10)
+
+Instruction Fine-tuning Language Model (FLAN) has shown a promissing result boosting the performance of LLM (2021.09). But at that time 10 tasks were used to fine-tune the model. Model's behavior on various intruction fine-tuning tasks has not yet to be observed. This paper [] aims to explore behaviors of LLMs scaling instruction fine-tuning tasks. Insights from this paper is listed below.
+
+1. Scaling the number of tasks from 10 to 1.8K and model sizes increase the performance continually.
+
+| <img src="https://github.com/trapoom555/trapoom555-blog/blob/main/static/images/A_5_years_brief_story_of_LLMs/Scale_FLAN_scale.png?raw=true" style= "display: block; margin-left: auto; margin-right: auto; width: 90%;"/>|
+|:--:| 
+| *Scaling effects on the number of tasks and model sizes (Image from [])* |
+
+2. CoT critically improves reasoning ability. *Jointly* fine-tuning with CoT data improves the performance on evaluation dataset. It has been observed that training with just CoT data degrades model performance of the evaluation data which doesn't have CoT. 
+
+| <img src="https://github.com/trapoom555/trapoom555-blog/blob/main/static/images/A_5_years_brief_story_of_LLMs/Scale_FLAN_CoT_Co_fine_tuning.png?raw=true" style= "display: block; margin-left: auto; margin-right: auto; width: 80%;"/>|
+|:--:| 
+| *Co-fine-tuning with CoT data improves performance (Image from [])* |
+
+3. As discovered in the FLAN paper, doing instruction fine-tuning improves zero-shot ability. This finding is still true for larger model size and the number of tasks.
+
+| <img src="https://github.com/trapoom555/trapoom555-blog/blob/main/static/images/A_5_years_brief_story_of_LLMs/Scale_FLAN_zero_shot.png?raw=true" style= "display: block; margin-left: auto; margin-right: auto; width: 50%;"/>|
+|:--:| 
+| *FLAN improves zero-shot ability (Image from [])* |
+
+4. Several responsible AI benchmarks are improved using FLAN. It increases usability of LLMs.
+
+5. All above insights work for both Decoder-Only and Encoder-Decoder models (PaLM and T5 were used in this paper for testing.) 
 
 # References
